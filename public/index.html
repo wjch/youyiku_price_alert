@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>优衣库降价监控</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>优衣库降价监控</h1>
+          <p>每天 00:00 和 12:00 自动检查，低于上次价格时发送飞书通知。</p>
+        </div>
+        <button id="checkNow" class="secondary" type="button">立即检查</button>
+      </header>
+
+      <section class="panel">
+        <form id="productForm" class="form">
+          <label>
+            <span>商品链接</span>
+            <input
+              id="url"
+              name="url"
+              type="url"
+              placeholder="https://www.uniqlo.cn/product-detail.html?productCode=u0000000069432"
+              required
+            />
+          </label>
+          <label>
+            <span>商品名称</span>
+            <input id="name" name="name" type="text" placeholder="可选，不填会使用商品编号" />
+          </label>
+          <button type="submit">新增监控</button>
+        </form>
+      </section>
+
+      <section class="toolbar">
+        <h2>监控商品</h2>
+        <span id="statusText"></span>
+      </section>
+
+      <section id="productList" class="list" aria-live="polite"></section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

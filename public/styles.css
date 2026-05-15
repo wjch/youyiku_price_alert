@@ -1,0 +1,211 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f6f5f2;
+  color: #1f2428;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.shell {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+p {
+  margin-top: 8px;
+  color: #667078;
+  line-height: 1.6;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #dfddd7;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr auto;
+  gap: 14px;
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+}
+
+label span {
+  color: #4d565d;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #c9c7c0;
+  border-radius: 6px;
+  padding: 0 12px;
+  background: #fff;
+  color: #1f2428;
+}
+
+input:focus {
+  border-color: #d71920;
+  outline: 3px solid rgba(215, 25, 32, 0.14);
+}
+
+button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 16px;
+  background: #d71920;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+button.secondary {
+  border: 1px solid #1f2428;
+  background: #1f2428;
+}
+
+button.danger {
+  border: 1px solid #d7d3ca;
+  background: #fff;
+  color: #b42328;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 28px 0 12px;
+}
+
+#statusText {
+  color: #667078;
+  font-size: 14px;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.empty,
+.item {
+  background: #fff;
+  border: 1px solid #dfddd7;
+  border-radius: 8px;
+}
+
+.empty {
+  padding: 32px;
+  color: #667078;
+  text-align: center;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  padding: 16px;
+}
+
+.item h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.meta,
+.price-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #667078;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.price {
+  color: #d71920;
+  font-weight: 800;
+}
+
+.error {
+  color: #b42328;
+}
+
+a {
+  color: #205493;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 820px) {
+  .topbar,
+  .toolbar,
+  .item {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .toolbar {
+    display: grid;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
