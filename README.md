@@ -151,6 +151,23 @@ pm2 restart uniqlo-price-watcher
 pm2 stop uniqlo-price-watcher
 ```
 
+更新代码后，让 PM2 重新加载最新代码：
+
+```bash
+git pull
+npm install
+npm run prod
+pm2 save
+```
+
+如果页面看起来没变化，先确认 PM2 已重启，再在浏览器里强制刷新页面：
+
+```bash
+pm2 restart uniqlo-price-watcher
+```
+
+浏览器强制刷新一般是 `Ctrl + F5`，macOS Chrome/Safari 可用 `Command + Shift + R`。
+
 6. 直接访问：
 
 ```text
