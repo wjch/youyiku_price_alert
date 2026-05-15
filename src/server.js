@@ -1,6 +1,7 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { sendFeishuTestMessage } from "./feishu.js";
 import { addProduct, deleteProduct, loadProducts } from "./products.js";
 import { loadState } from "./state.js";
 
@@ -62,6 +63,15 @@ export function createServer({ runJob, isJobRunning }) {
 
       runJob();
       res.status(202).json({ ok: true });
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.post("/api/feishu/test", async (req, res, next) => {
+    try {
+      await sendFeishuTestMessage();
+      res.json({ ok: true });
     } catch (error) {
       next(error);
     }

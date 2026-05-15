@@ -2,6 +2,7 @@ const form = document.querySelector("#productForm");
 const list = document.querySelector("#productList");
 const statusText = document.querySelector("#statusText");
 const checkNowButton = document.querySelector("#checkNow");
+const testFeishuButton = document.querySelector("#testFeishu");
 
 await refresh();
 
@@ -47,6 +48,22 @@ checkNowButton.addEventListener("click", async () => {
     alert(error.message);
   } finally {
     checkNowButton.disabled = false;
+  }
+});
+
+testFeishuButton.addEventListener("click", async () => {
+  testFeishuButton.disabled = true;
+
+  try {
+    const response = await fetch("/api/feishu/test", {
+      method: "POST"
+    });
+    await ensureOk(response);
+    statusText.textContent = "飞书测试消息已发送，请查看群聊。";
+  } catch (error) {
+    alert(`飞书测试失败：${error.message}`);
+  } finally {
+    testFeishuButton.disabled = false;
   }
 });
 

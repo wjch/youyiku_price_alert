@@ -33,6 +33,13 @@ input {
   margin-bottom: 24px;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
 h1,
 h2,
 p {
@@ -203,6 +210,14 @@ a:hover {
   .topbar,
   .toolbar {
     display: grid;
+  }
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  .actions button {
+    flex: 1;
   }
 
   .form {

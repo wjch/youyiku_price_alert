@@ -5,6 +5,7 @@ dotenv.config();
 
 export const appConfig = {
   feishuBotUrl: process.env.FEISHU_BOT_URL,
+  feishuBotSecret: process.env.FEISHU_BOT_SECRET,
   timezone: process.env.TIMEZONE || "Asia/Shanghai",
   headless: (process.env.HEADLESS || "true").toLowerCase() !== "false",
   runOnStart: (process.env.RUN_ON_START || "false").toLowerCase() === "true",

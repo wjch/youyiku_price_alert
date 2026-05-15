@@ -21,6 +21,8 @@ cp .env.example .env
 
 把 `.env` 里的 `FEISHU_BOT_URL` 改成你的飞书机器人 webhook。
 
+如果飞书机器人开启了“签名校验”，还需要填写 `FEISHU_BOT_SECRET`。
+
 3. 配置商品：
 
 编辑 `config/products.json`：
@@ -60,6 +62,7 @@ http://localhost:3000
 ## 配置项
 
 - `FEISHU_BOT_URL`：飞书机器人 webhook。
+- `FEISHU_BOT_SECRET`：飞书机器人签名密钥。机器人未开启签名校验时留空。
 - `TIMEZONE`：默认 `Asia/Shanghai`。
 - `HEADLESS`：默认 `true`。调试页面时可设为 `false`。
 - `RUN_ON_START`：默认 `false`。设为 `true` 后启动程序会立刻检查一次。
@@ -76,6 +79,8 @@ https://www.uniqlo.cn/product-detail.html?productCode=u0000000069432
 ```
 
 商品编号会自动从 `productCode` 提取，用于保存历史价格。
+
+页面右上角的“测试飞书”按钮会发送一条测试消息，用来确认 `FEISHU_BOT_URL` 和 `FEISHU_BOT_SECRET` 是否配置正确。
 
 ## 注意
 
@@ -120,6 +125,12 @@ nano .env
 ```
 
 至少修改 `FEISHU_BOT_URL`。如果要改管理页面端口，修改 `PORT`。
+
+如果飞书机器人安全设置里启用了“签名校验”，还要把密钥填到 `FEISHU_BOT_SECRET`：
+
+```env
+FEISHU_BOT_SECRET=你的签名密钥
+```
 
 5. 启动并设置开机自启：
 
